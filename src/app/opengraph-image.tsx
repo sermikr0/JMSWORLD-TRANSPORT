@@ -1,5 +1,14 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
+
+// Read once at module scope; the asset does not depend on the request.
+const logoData = await readFile(
+  join(process.cwd(), "src/assets/brand/logo-on-dark.png"),
+  "base64",
+);
+const logoSrc = `data:image/png;base64,${logoData}`;
 
 export const alt = `${site.legalName} — ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
@@ -21,50 +30,7 @@ export default function OpenGraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-          <svg width="76" height="76" viewBox="0 0 40 40">
-            <rect width="40" height="40" rx="8" fill="#163061" />
-            <path
-              d="M8 11h4M16 11h10"
-              fill="none"
-              stroke="#5f8ff7"
-              strokeWidth="4.2"
-              strokeLinecap="round"
-            />
-            <path
-              d="M26 11v11a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6"
-              fill="none"
-              stroke="#ffffff"
-              strokeWidth="4.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div
-              style={{
-                display: "flex",
-                fontSize: 44,
-                fontWeight: 700,
-                letterSpacing: -1,
-                lineHeight: 1,
-              }}
-            >
-              <span>JMS</span>
-              <span style={{ color: "#5f8ff7" }}>WORLD</span>
-            </div>
-            <div
-              style={{
-                marginTop: 8,
-                fontSize: 16,
-                letterSpacing: 6,
-                color: "rgba(255,255,255,0.6)",
-              }}
-            >
-              TRANSPORT LLC
-            </div>
-          </div>
-        </div>
+        <img src={logoSrc} alt="" width={181} height={140} />
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div

@@ -19,7 +19,7 @@ Tailwind CSS 4 · react-hook-form + zod · Resend (email) · Lucide icons.
 | `/privacy`    | Plain-language privacy notice for the forms                          |
 | `404`         | Custom not-found page; `error.tsx` handles runtime errors            |
 
-Also generated: `/sitemap.xml`, `/robots.txt`, an Open Graph image, SVG favicon
+Also generated: `/sitemap.xml`, `/robots.txt`, an Open Graph image, PNG favicon
 and Apple touch icon, and LocalBusiness JSON-LD (name, address, phone, USDOT/MC
 only — no ratings or unverified claims).
 
@@ -213,7 +213,16 @@ src/
 
 ## Brand
 
-The mark is a "J" whose top stroke runs out as a dashed lane marking. It is an
-inline SVG (`src/components/brand/logo.tsx`, `src/app/icon.svg`) in brand navy
-`#0a1730` with accent blue `#5f8ff7`, and works on light and dark backgrounds.
+The logo is the JMS monogram over a North America globe, framed by red and
+black orbit swooshes, above the "JMSWORLD Transport LLC" wordmark. Files live in
+`src/assets/brand/` (transparent PNGs cut from the company's artwork):
+
+- `logo.png` — original colours, for light backgrounds.
+- `logo-on-dark.png` — reversed (black parts in white, red slightly lifted), used
+  in the header, footer and Open Graph image on brand navy.
+
+`<Logo tone="dark" | "light" height={…} />` in `src/components/brand/logo.tsx`
+picks the right file. The favicon (`src/app/icon.png`) and Apple touch icon
+(`src/app/apple-icon.png`) use the monogram and globe without the wordmark, on
+white. Site UI colours are still navy `#0a1730` with accent blue `#5f8ff7`.
 Typography: Manrope (display) and Inter (text), self-hosted through `next/font`.

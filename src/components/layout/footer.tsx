@@ -43,7 +43,7 @@ export function Footer() {
               className="inline-block rounded-sm"
               aria-label={`${site.legalName} — home`}
             >
-              <Logo tone="dark" />
+              <Logo tone="dark" height={120} />
             </Link>
             <p className="mt-6 max-w-xs text-sm leading-relaxed">
               A transportation company based in Norwood, Ohio. Request a quote

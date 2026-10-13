@@ -78,10 +78,10 @@ export function Header() {
       <Container className="flex h-18 items-center justify-between gap-6">
         <Link
           href="/"
-          className="rounded-sm"
+          className="shrink-0 rounded-sm"
           aria-label={`${site.legalName} — home`}
         >
-          <Logo tone="dark" />
+          <Logo tone="dark" height={60} eager />
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">
