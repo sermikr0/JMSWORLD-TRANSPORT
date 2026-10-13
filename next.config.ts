@@ -15,8 +15,8 @@ const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://images.unsplash.com https://images.pexels.com",
-  "media-src 'self' https://videos.pexels.com",
+  "img-src 'self' data: blob: https://images.unsplash.com",
+  "media-src 'self'",
   "font-src 'self' data:",
   `connect-src 'self'${isDev ? " ws: wss:" : ""}`,
   "frame-src https://www.google.com",
@@ -56,7 +56,6 @@ const nextConfig: NextConfig = {
     qualities: [60, 75, 85],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
-      { protocol: "https", hostname: "images.pexels.com", pathname: "/**" },
     ],
   },
   turbopack: {

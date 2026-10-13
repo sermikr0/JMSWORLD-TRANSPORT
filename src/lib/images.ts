@@ -46,36 +46,30 @@ export const photos = {
 } satisfies Record<string, SitePhoto>;
 
 /**
- * Homepage hero video (muted, looping) and its poster — the poster should be the
- * clip's first frame so the loop dissolve is seamless. Replace both with the
- * company's own footage by dropping files into /public/videos and /public/images.
+ * Homepage hero video (muted, looping) and its poster — the poster is the clip's
+ * first frame so the loop dissolve is seamless. Self-hosted from /public: a Pexels
+ * clip (free license) edited to remove the truck's licence plate, door lettering,
+ * unit and trailer numbers, hazmat placard numbers and the trailer's company name,
+ * plus the plates of parked vehicles. Replace both files with the company's own
+ * footage when available.
  */
 export const heroVideo = {
-  src: "https://videos.pexels.com/video-files/17899033/17899033-hd_1920_1080_24fps.mp4",
+  src: "/videos/hero-loop.mp4",
   type: "video/mp4",
   poster: {
-    src: "https://images.pexels.com/videos/17899033/pexels-photo-17899033.jpeg",
+    src: "/images/hero-poster.jpg",
     alt: "Red conventional semi-truck pulling a white trailer out onto the road at golden hour",
     credit: { name: "Pexels", url: "https://www.pexels.com/video/17899033/" },
   } satisfies SitePhoto,
 };
 
 export function isRemoteCdn(src: string) {
-  return (
-    src.startsWith("https://images.unsplash.com/") ||
-    src.startsWith("https://images.pexels.com/")
-  );
+  return src.startsWith("https://images.unsplash.com/");
 }
 
 /** Lets the stock-photo CDN resize and encode instead of proxying through this server. */
 export function cdnLoader({ src, width, quality }: ImageLoaderProps) {
   const url = new URL(src);
-  if (url.hostname === "images.pexels.com") {
-    url.searchParams.set("auto", "compress");
-    url.searchParams.set("cs", "tinysrgb");
-    url.searchParams.set("w", String(width));
-    return url.toString();
-  }
   url.searchParams.set("auto", "format");
   url.searchParams.set("fit", "crop");
   url.searchParams.set("w", String(width));

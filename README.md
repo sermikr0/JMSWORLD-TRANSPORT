@@ -64,11 +64,14 @@ than a fake success.
   loop point, and is skipped entirely on screens under 768px, with
   `prefers-reduced-motion`, or when the browser's data saver is on.
 - Clip and poster are configured in `src/lib/images.ts` (`heroVideo`).
-  Currently they are hotlinked from Pexels (free license). To self-host or use
-  the company's own footage, put `hero-loop.mp4` (H.264, 1080p, 8–12 MB,
-  8–20 s) in `public/videos/`, a JPEG of its first frame in `public/images/`,
-  point `heroVideo` at them and drop `videos.pexels.com` / `images.pexels.com`
-  from the CSP in `next.config.ts`.
+  Both are self-hosted: `public/videos/hero-loop.mp4` (H.264, 1080p, ~6 MB,
+  10.8 s, no audio) and `public/images/hero-poster.jpg` (its first frame). The
+  clip is a Pexels video (free license) edited so the truck carries no
+  identifying marks: licence plate, door lettering, unit and trailer numbers,
+  hazmat placard numbers and the trailer's company name were tracked frame by
+  frame and painted out, as were the plates of parked vehicles. To use the
+  company's own footage, replace both files (H.264, 1080p, 8–12 MB, 8–20 s; the
+  poster must be the clip's first frame).
 - Section reveals use CSS scroll-driven animations (`reveal`, `reveal-zoom`,
   `reveal-line` utilities in `globals.css`) with no JavaScript; browsers
   without support simply show the content. Keep revealed elements out of
