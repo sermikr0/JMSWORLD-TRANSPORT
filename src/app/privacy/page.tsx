@@ -51,6 +51,36 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="display text-3xl text-navy-900">
+                SMS messaging
+              </h2>
+              <p className="mt-4">
+                If you opt in to receive SMS messages from JMSWORLD Transport,
+                we may send you text messages related to transportation
+                services, shipment updates, dispatch coordination, and customer
+                inquiries.
+              </p>
+              <ul className="mt-4 list-disc space-y-2 pl-6 marker:text-accent-500">
+                <li>Message frequency may vary.</li>
+                <li>Message and data rates may apply.</li>
+                <li>
+                  Reply <strong className="text-navy-900">STOP</strong> at any
+                  time to opt out.
+                </li>
+                <li>
+                  Reply <strong className="text-navy-900">HELP</strong> for
+                  assistance.
+                </li>
+              </ul>
+              <p className="mt-4">
+                SMS consent and mobile phone numbers collected for SMS
+                messaging will not be shared, sold, or disclosed to third
+                parties or affiliates for their marketing or promotional
+                purposes.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="display text-3xl text-navy-900">
                 Service providers
               </h2>
               <p className="mt-4">
