@@ -49,7 +49,7 @@ export default function PrivacyPage() {
               </p>
             </div>
 
-            <div>
+            <div id="sms-messaging" className="scroll-mt-28">
               <h2 className="display text-3xl text-navy-900">
                 SMS messaging
               </h2>

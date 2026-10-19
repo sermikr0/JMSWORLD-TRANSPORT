@@ -50,6 +50,7 @@ export async function submitQuoteRequest(input: unknown): Promise<SubmitResult> 
     ["Estimated weight", `${Number(d.weightLbs).toLocaleString("en-US")} lbs`],
     ["Requested pickup date", d.pickupDate],
     ["Additional details", d.details],
+    ["SMS consent", d.smsConsent ? "Yes, agreed to receive text messages" : "No"],
     ["Received", new Date().toISOString()],
   ]);
 

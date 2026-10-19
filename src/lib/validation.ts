@@ -104,6 +104,8 @@ export const quoteSchema = z.object({
     .refine(isNotPast, "Pickup date can't be in the past")
     .refine(isWithinOneYear, "Choose a date within the next 12 months"),
   details: optionalText(2000),
+  /** Optional opt-in to text messages (SMS consent). Never pre-checked. */
+  smsConsent: z.boolean(),
   ...antiSpam,
 });
 

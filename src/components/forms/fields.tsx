@@ -172,6 +172,54 @@ export function TextAreaField({
   );
 }
 
+/** Optional, unchecked-by-default opt-in to text messages (SMS consent). */
+export function SmsConsentField({
+  id,
+  ...input
+}: { id: string } & Omit<ComponentProps<"input">, "id" | "className" | "type">) {
+  const linkClass =
+    "font-medium text-navy-900 underline-offset-4 hover:underline";
+  return (
+    <div className="flex gap-3 rounded-sm border border-ink-200 bg-ink-50 p-5">
+      <input
+        id={id}
+        type="checkbox"
+        className="mt-0.5 h-5 w-5 shrink-0 cursor-pointer accent-accent-600"
+        {...input}
+      />
+      <div>
+        <label htmlFor={id} className="cursor-pointer">
+          <span className="block text-sm font-semibold text-ink-800">
+            SMS consent (optional)
+          </span>
+          <span className="mt-2 block text-sm leading-relaxed text-ink-600">
+            I agree to receive text messages from JMSWORLD Transport LLC
+            regarding shipment updates, pickup and delivery coordination,
+            dispatch communications, and responses to my inquiries. Message
+            frequency varies. Message and data rates may apply. Reply STOP to
+            opt out or HELP for assistance. Consent is not a condition of
+            purchasing any service.
+          </span>
+        </label>
+        <p className="mt-2 text-[13px] text-ink-500">
+          <a href="/privacy" target="_blank" rel="noopener" className={linkClass}>
+            Privacy Policy
+          </a>
+          {" · "}
+          <a
+            href="/privacy#sms-messaging"
+            target="_blank"
+            rel="noopener"
+            className={linkClass}
+          >
+            SMS Terms &amp; Conditions
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /** Honeypot: invisible to people, tempting to bots. Must be submitted empty. */
 export function Honeypot({
   id,

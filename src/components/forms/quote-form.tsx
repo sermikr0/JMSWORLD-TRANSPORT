@@ -13,6 +13,7 @@ import {
   FormAlert,
   Honeypot,
   SelectField,
+  SmsConsentField,
   SubmitButton,
   SuccessPanel,
   TextAreaField,
@@ -38,6 +39,7 @@ const defaultValues: QuoteInput = {
   weightLbs: "",
   pickupDate: "",
   details: "",
+  smsConsent: false,
   website: "",
   startedAt: 0,
 };
@@ -173,6 +175,7 @@ export function QuoteForm() {
             {...register("phone")}
           />
         </div>
+        <SmsConsentField id="smsConsent" {...register("smsConsent")} />
       </fieldset>
 
       <fieldset className="space-y-5">
